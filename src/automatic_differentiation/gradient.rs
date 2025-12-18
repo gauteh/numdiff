@@ -101,7 +101,7 @@
 /// ```
 #[macro_export]
 macro_rules! get_gradient {
-    ($f:ident, $func_name:ident) => {
+    ($f:ident, $func_name:ident, $at:ty) => {
         /// Gradient of a multivariate, scalar-valued function `f: ℝⁿ → ℝ`.
         ///
         /// This function is generated for a specific function `f` using the
@@ -116,7 +116,7 @@ macro_rules! get_gradient {
         /// Gradient of `f` with respect to `x`, evaluated at `x = x₀`.
         ///
         /// `∇f(x₀) ∈ ℝⁿ`
-        fn $func_name<S, V>(x0: &V) -> V::Vectorf64
+        fn $func_name<S, V>(x0: &V, a: $at) -> V::Vectorf64
         where
             S: Scalar,
             V: Vector<S>,
@@ -140,7 +140,7 @@ macro_rules! get_gradient {
                 x0_dual.vset(k, Dual::new(x0k.get_real(), 1.0));
 
                 // Partial derivative of f with respect to xₖ.
-                g.vset(k, $f(&x0_dual).get_dual());
+                g.vset(k, $f(&x0_dual, a).get_dual());
 
                 // Reset the evaluation point.
                 x0_dual.vset(k, x0k);
