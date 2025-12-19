@@ -116,7 +116,7 @@ macro_rules! get_gradient {
         /// Gradient of `f` with respect to `x`, evaluated at `x = x₀`.
         ///
         /// `∇f(x₀) ∈ ℝⁿ`
-        fn $func_name<S, V>(x0: &V, a: $at) -> V::Vectorf64
+        pub fn $func_name<S, V>(x0: &V, a: $at) -> V::Vectorf64
         where
             S: Scalar,
             V: Vector<S>,
