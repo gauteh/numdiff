@@ -15,14 +15,14 @@ rustdoc-args = [ "--html-in-header", "src/docs-header.html" ]
 features = ["trig"]
 
 [dependencies]
-linalg-traits = "0.12.1"
-num-traits = "0.2.19"
-once_cell = "1.21.3"
-trig = { version = "0.2.1", optional = true }
+linalg-traits = "0.13"
+num-traits = "0.2"
+once_cell = "1.21"
+trig = { version = "0.2", optional = true }
 
 [dev-dependencies]
 faer = "0.22.6"
-linalg-traits = { version = "0.12.1", features = ["nalgebra", "ndarray", "faer", "faer-traits"] }
+linalg-traits = { version = "0.13", features = ["nalgebra", "ndarray", "faer", "faer-traits"] }
 nalgebra = "0.34.0"
 ndarray = "0.16.1"
 numtest = "0.3.1"
